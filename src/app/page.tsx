@@ -1,65 +1,65 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { Shield, Settings, Wrench } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="min-h-screen bg-slate-50 p-8 flex flex-col items-center justify-center">
+      
+      {/* En-tête de l'application */}
+      <header className="mb-16 text-center">
+        <h1 className="text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          Technelec <span className="text-blue-600">Nexus</span>
+        </h1>
+        <p className="text-xl text-slate-500 font-medium">
+          Plateforme d'Analyse Industrielle & Gestion de Production
+        </p>
+      </header>
+
+      {/* Menu des Gammes (Les 3 gros boutons) */}
+      <main className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        {/* Carte VST */}
+        <Link 
+          href="/gamme/VST" 
+          className="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-10 border border-slate-200 flex flex-col items-center cursor-pointer hover:-translate-y-2"
+        >
+          <div className="h-20 w-20 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+            <Shield size={40} />
+          </div>
+          <h2 className="text-3xl font-bold text-slate-800 mb-2">Gamme VST</h2>
+          <p className="text-slate-500 text-center">Systèmes de sécurité verticaux, chariots et rails.</p>
+        </Link>
+
+        {/* Carte HST */}
+        <Link 
+          href="/gamme/HST" 
+          className="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-10 border border-slate-200 flex flex-col items-center cursor-pointer hover:-translate-y-2"
+        >
+          <div className="h-20 w-20 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-600 group-hover:text-white transition-colors duration-300">
+            <Wrench size={40} />
+          </div>
+          <h2 className="text-3xl font-bold text-slate-800 mb-2">Gamme HST</h2>
+          <p className="text-slate-500 text-center">Systèmes de sécurité horizontaux et cintrages.</p>
+        </Link>
+
+        {/* Carte VSTL */}
+        <Link 
+          href="/gamme/VSTL" 
+          className="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 p-10 border border-slate-200 flex flex-col items-center cursor-pointer hover:-translate-y-2"
+        >
+          <div className="h-20 w-20 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+            <Settings size={40} />
+          </div>
+          <h2 className="text-3xl font-bold text-slate-800 mb-2">Gamme VSTL</h2>
+          <p className="text-slate-500 text-center">Échelles de sécurité et composants spécifiques.</p>
+        </Link>
+
       </main>
+      
+      {/* Pied de page */}
+      <footer className="mt-20 text-slate-400 text-sm">
+        © 2026 Technelec - Module Catalogue
+      </footer>
     </div>
   );
 }
