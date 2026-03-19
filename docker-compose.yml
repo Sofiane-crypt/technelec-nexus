@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: technelec-db
+    restart: always
+    environment:
+      POSTGRES_USER: technelec_admin
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: technelec_prod
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Ligne ajoutée pour exécuter le script SQL automatiquement
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:
